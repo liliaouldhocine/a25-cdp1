@@ -104,7 +104,7 @@ for index, mot in enumerate(mots):
 nombre = 0
 
 while not (1 <= nombre <= 100):
-    nombre = 50
+    nombre = int(input("Entrez une valeur : "))
     if 1 <= nombre <= 100:
         break
     else:
