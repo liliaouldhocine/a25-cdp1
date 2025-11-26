@@ -132,6 +132,13 @@ produits = {
 }
 
 cles_a_supprimer = [cle for cle, valeur in produits.items() if valeur is None]
+
+# Cette ligne est l'équivalent de ces 4 lignes de code
+# cles_a_supprimer = []
+# for cle, valeur in produits.items():
+#     if valeur is None:
+#         cle_a_supprimer.append(cle)
+
 for cle in cles_a_supprimer:
     del produits[cle]
 
