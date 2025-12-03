@@ -181,7 +181,7 @@ prix_final = ______
 print(f"Prix TTC: {prix_final}")
 ```
 
-### 6.3 : Code à Corriger
+### 6.3 : Code
 
 ```python
 def modifier_liste(liste):
