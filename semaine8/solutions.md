@@ -191,7 +191,7 @@ class Produit:
         cls.taux_tva = nouveau_taux
 
     def prix_ttc(self):
-        return self.prix_ht * (1 + self.taux_tva)
+        return self.prix_ht + (self.prix_ht * self.taux_tva)
 
 Produit.changer_tva(0.2)
 p = Produit("Livre", 20)
