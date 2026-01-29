@@ -49,30 +49,7 @@ def calculatrice():
         print("4. Division (/)")
         print("5. Quitter")
 
-        try:
-            # Demander le choix de l'utilisateur
-            choix = input("Votre choix (1-5) : ")
-
-            # Quitter si l'utilisateur choisit 5
-            if choix == '5':
-                print("Merci d'avoir utilisé la calculatrice. Au revoir!")
-                break
-
-            # Demander les deux nombres
-            # À COMPLÉTER : ajouter la gestion d'exception pour la conversion
-
-            # Effectuer l'opération choisie
-            # À COMPLÉTER : ajouter les différentes opérations avec gestion d'erreurs
-
-        except ValueError:
-            # À COMPLÉTER : gérer l'exception ValueError
-            pass
-        except ZeroDivisionError:
-            # À COMPLÉTER : gérer l'exception ZeroDivisionError
-            pass
-        except Exception as e:
-            # À COMPLÉTER : gérer les autres exceptions
-            pass
+        # Développement ici
 
 # Point d'entrée du programme
 if __name__ == "__main__":
