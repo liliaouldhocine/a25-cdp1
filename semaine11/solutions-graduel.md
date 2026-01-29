@@ -74,47 +74,6 @@ def lire_fichier():
         print("Opération terminée.")
 ```
 
-### **Exercice 2.2 : Calculatrice robuste**
-
-```python
-def calculatrice_robuste():
-    while True:
-        try:
-            a = float(input("Premier nombre : "))
-            b = float(input("Deuxième nombre : "))
-            operation = input("Opération (+, -, *, /) ou 'q' pour quitter : ")
-
-            if operation.lower() == 'q':
-                print("Au revoir !")
-                break
-
-            if operation == '+':
-                resultat = a + b
-            elif operation == '-':
-                resultat = a - b
-            elif operation == '*':
-                resultat = a * b
-            elif operation == '/':
-                resultat = a / b
-            else:
-                print("Erreur : Opération non valide. Utilisez +, -, *, /")
-                continue
-
-        except ValueError:
-            print("Erreur : Veuillez entrer des nombres valides.")
-            continue
-        except ZeroDivisionError:
-            print("Erreur : Division par zéro impossible.")
-            continue
-        except Exception as e:
-            print(f"Erreur inattendue : {type(e).__name__} - {e}")
-            continue
-        else:
-            print(f"Résultat : {resultat}")
-        finally:
-            print("-" * 30)
-```
-
 ### **Exercice 2.3 : Validation d'entrée utilisateur**
 
 ```python
@@ -458,85 +417,6 @@ except (FormatTacheError, ChampManquantError) as e:
     print(f"Erreur de format : {e}")
 except Exception as e:
     print(f"Erreur inattendue : {type(e).__name__} - {e}")
-```
-
-### **Exercice 5.2 : Calculatrice scientifique étendue**
-
-```python
-class ErreurMathematique(Exception):
-    pass
-
-class NombreNegatifError(ErreurMathematique):
-    pass
-
-class NombreNonPositifError(ErreurMathematique):
-    pass
-
-def calculatrice_scientifique():
-    while True:
-        print("\n=== Calculatrice Scientifique ===")
-        print("1. Addition (+)")
-        print("2. Soustraction (-)")
-        print("3. Multiplication (*)")
-        print("4. Division (/)")
-        print("5. Racine carrée (√)")
-        print("6. Logarithme (log)")
-        print("7. Puissance (^)")
-        print("8. Quitter")
-
-        choix = input("Choix (1-8) : ")
-
-        if choix == '8':
-            print("Au revoir !")
-            break
-
-        try:
-            if choix in ['5', '6']:  # Opérations unaires
-                a = float(input("Nombre : "))
-            else:
-                a = float(input("Premier nombre : "))
-                if choix != '7':  # Pas besoin de deuxième nombre pour racine/log
-                    b = float(input("Deuxième nombre : "))
-
-            if choix == '1':
-                resultat = a + b
-            elif choix == '2':
-                resultat = a - b
-            elif choix == '3':
-                resultat = a * b
-            elif choix == '4':
-                if b == 0:
-                    raise ZeroDivisionError("Division par zéro")
-                resultat = a / b
-            elif choix == '5':
-                if a < 0:
-                    raise NombreNegatifError("La racine carrée d'un nombre négatif n'est pas définie")
-                resultat = a ** 0.5
-            elif choix == '6':
-                if a <= 0:
-                    raise NombreNonPositifError("Le logarithme n'est défini que pour les nombres positifs")
-                import math
-                resultat = math.log(a)
-            elif choix == '7':
-                b = float(input("Exposant : "))
-                resultat = a ** b
-            else:
-                print("Choix invalide")
-                continue
-
-            print(f"Résultat : {resultat}")
-
-        except ValueError:
-            print("Erreur : Veuillez entrer des nombres valides.")
-        except ZeroDivisionError as e:
-            print(f"Erreur mathématique : {e}")
-        except (NombreNegatifError, NombreNonPositifError) as e:
-            print(f"Erreur de domaine : {e}")
-        except Exception as e:
-            print(f"Erreur inattendue : {type(e).__name__} - {e}")
-
-# Test
-calculatrice_scientifique()
 ```
 
 ### **Exercice 5.3 : Système de réservation**
