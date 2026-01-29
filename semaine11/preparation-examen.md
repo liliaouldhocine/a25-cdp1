@@ -51,9 +51,8 @@ def calculatrice():
 
         # Développement ici
 
-# Point d'entrée du programme
-if __name__ == "__main__":
-    calculatrice()
+
+calculatrice()
 ```
 
 ## Questions pour guider les étudiants
