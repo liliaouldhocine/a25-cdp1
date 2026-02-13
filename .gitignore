@@ -8,3 +8,4 @@ semaine9/*imports*
 correction/
 __pycache__
 prof-c-*
+!semaine14/mon_app/tests
