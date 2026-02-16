@@ -20,3 +20,15 @@ class ConsoleUI:
 
     def message(self, text):
         print(text)
+
+    def ask_restart(self):
+        while True: 
+            choise = input("Voulez-vous rejouer ? (o/n) > ").strip().lower()
+
+            if choise in ('o', 'oui'): 
+                return True
+            
+            if choise in ('n', 'non') : 
+                return False
+            
+            print("Veuillez entrer o/oui ou n/non")

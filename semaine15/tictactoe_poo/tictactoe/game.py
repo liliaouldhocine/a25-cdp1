@@ -17,6 +17,15 @@ class Game:
         self.ui = ui
         self.board = board if board is not None else Board()
         self.current_player = self.PLAYER_1
+        self.turn_count = 0
+
+    def restart(self):
+        previous_size = self.board.size
+        self.board = Board(previous_size)
+        self.current_player = self.PLAYER_1
+        self.turn_count = 0
+        self.ui.message("\nNouvelle partie commencée !\n")
+        self.run()
 
     def switch_player(self):
         self.current_player = self.PLAYER_1 if self.current_player == self.PLAYER_2 else self.PLAYER_2
@@ -33,6 +42,7 @@ class Game:
             self.ui.message("Case prise, recommencez : ")
             return False
         
+        self.turn_count += 1
         return True
     
     def run(self):
@@ -46,11 +56,17 @@ class Game:
             self.board.draw()
 
             if self.board.is_winner():
-                self.ui.message(f"{self.current_player} a gagné !")
+                self.ui.message(f"{self.current_player} a gagné en {self.turn_count} tours !")
+
+                if self.ui.ask_restart():
+                    self.restart()
                 break
 
             if self.board.is_draw():
-                self.ui.message("Égalité !")
+                self.ui.message(f"Égalité en {self.turn_count} tours !")
+
+                if self.ui.ask_restart():
+                    self.restart()
                 break
 
             self.switch_player()

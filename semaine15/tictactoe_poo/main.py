@@ -9,7 +9,7 @@ from tictactoe.game import Game
 
 def main():
     ui = ConsoleUI()
-    board = Board(4)
+    board = Board(3)
     game = Game(ui, board)
     game.run()
 
